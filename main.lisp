@@ -4,6 +4,16 @@
 
 (asdf:load-system :uiop)
 
+(defun help ()
+    (format t "Usage: ./main.lisp [options] [file ...]")
+    (fresh-line)
+    (quit)
+)
+
+(if
+(member "-h" (uiop:command-line-arguments) :test #'string-equal)
+(help)
+)
 
 (defun prettyprint (file)
   (format t (namestring file))
