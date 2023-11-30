@@ -22,3 +22,10 @@ Also because i felt bored, i added -rev argument, it simply reverse all the file
 
 You need sbcl to run the script `sudo apt-get install sbcl`
 
+# For Windows users :
+
+Download a good system (ie: any linux)
+
+Use rufus to create a bootable/installation drive
+
+Install your distro over Windows and never get back to it (hamanity's fate is in Linux)
