@@ -7,6 +7,12 @@
 (defun help ()
     (format t "Usage: ./main.lisp [options] [file ...]")
     (fresh-line)
+    (format t "Options:")
+    (fresh-line)
+    (format t "  -h  --help  Display this information")
+    (fresh-line)
+    (format t "  -rev  Reverse the files names")
+    (fresh-line)
     (quit)
 )
 
@@ -16,7 +22,12 @@
 )
 
 (defun prettyprint (file)
-  (format t (namestring file))
+  (setf file (pathname-name file))
+  (if
+    (member "-rev" (uiop:command-line-arguments) :test #'string-equal)
+    (setf file (reverse file))
+  )
+  (format t file)
   (fresh-line)
 )
 
