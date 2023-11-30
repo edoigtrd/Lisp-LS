@@ -21,16 +21,18 @@
 (help)
 )
 
-(defun prettyprint (file)
-  (setf file (pathname-name file))
-  (if
-    (member "-rev" (uiop:command-line-arguments) :test #'string-equal)
-    (setf file (reverse file))
-  )
-  (format t file)
-  (fresh-line)
+(defun tryrev (filename)
+(if
+(member "-rev" (uiop:command-line-arguments) :test #'string-equal)
+(return-from tryrev (reverse filename))
+)
+(return-from tryrev filename)
 )
 
+(defun prettyprint (file)
+  (format t (tryrev (namestring file)))
+  (fresh-line)
+)
 
 (defvar path (uiop/os:getcwd))
 
