@@ -1,5 +1,3 @@
-#!/usr/bin/sbcl --script
-
 (require :asdf)
 
 (asdf:load-system :uiop)
