@@ -1,4 +1,4 @@
-#!/usr/bin/sbcl --script
+#!/bin/sbcl --script
 
 (require :asdf)
 
