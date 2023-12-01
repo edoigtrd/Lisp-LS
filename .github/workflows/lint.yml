@@ -32,7 +32,8 @@ jobs:
     
     - name: Clone Lisp-LS
       run: |
-        git clone
+        git clone https://github.com/edoigtrd/Lisp-LS.git &&
+        cd Lisp-LS
 
     - name: Commit and push
       run: |
