@@ -21,6 +21,16 @@
 (help)
 )
 
+(defun get_show_name (file)
+  (if (string-equal (namestring file) (namestring (uiop:resolve-symlinks file))) (return-from get_show_name (namestring file)) )
+		(return-from get_show_name
+  		(concatenate 'string (namestring file) " --> " (namestring (uiop:resolve-symlinks file)))
+		) 
+)
+
+
+
+
 (defun tryrev (filename)
 (if
 (member "-rev" (uiop:command-line-arguments) :test #'string-equal)
@@ -30,7 +40,7 @@
 )
 
 (defun prettyprint (file)
-  (format t (tryrev (namestring file)))
+  (format t (tryrev (namestring (get_show_name file))))
   (fresh-line)
 )
 
